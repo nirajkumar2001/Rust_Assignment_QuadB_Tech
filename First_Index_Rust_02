@@ -1,0 +1,54 @@
+Given a sorted array of integers, implement a function that returns the index of the first occurrence of a given number.
+ in this question simply he was  asking about the lower bound of that number we can solve it via the binary approach with log(n) time complexity. and with for loop with o(n).
+
+use std::io;
+use std::cmp::Ordering;
+
+fn first_index(arr: &Vec<i32>, target: i32) -> Option<usize> {
+    let mut left = 0;
+    let mut right = arr.len() as isize - 1;
+    let mut result = None;
+
+    while left <= right {
+        let mid = left + (right - left) / 2;
+        let mid_index = mid as usize;
+
+        match arr[mid_index].cmp(&target) {
+            Ordering::Greater => right = mid - 1,// finding some more type of lower bound 
+            Ordering::Equal => {
+                result = Some(mid_index);
+                right = mid - 1;
+            },
+            Ordering::Less => left = mid + 1,
+        }
+    }
+
+    result
+}
+
+fn main() {
+    let mut input = String::new();
+
+    println!("Enter number of elements:"); // enter the size of the array
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+    let n: usize = input.trim().parse().expect("Invalid input. Please enter a number.");
+
+    input.clear();
+
+    println!("Enter sorted array elements:"); // enter the sorted array
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+    let arr: Vec<i32> = input.split_whitespace()
+                             .map(|x| x.parse().expect("Invalid input. Please enter integers."))
+                             .collect();
+
+    input.clear();
+
+    println!("Enter target number:");// enter the target to find the first index
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+    let target: i32 = input.trim().parse().expect("Invalid input. Please enter a number.");
+
+    match first_index(&arr, target) {
+        Some(idx) => println!("The first index of {} is at index: {}", target, idx),
+        None => println!("Target {} not found in the array.", target),  // return the if the target is found or else return -1;
+    }
+}
