@@ -1,0 +1,26 @@
+Implement a function that checks whether a given number is prime or not.
+
+# include<bits/stdc++.h>
+using namespace std;
+bool CheckPrimerNumber( int Number){
+    for( int i=2; i*i<= Number;i++){
+        if( Number% i==0){
+            return false;
+        }
+    }
+    return true;
+}
+ int main(){
+      int number;
+      cout<<"Enter the Number: ";
+      cin>>number;
+       bool ans= CheckPrimerNumber( number);
+        if(ans){
+            cout<<number<<": The given number is Prime number"<<endl;
+        }
+        else{
+             cout<<number<<": The given number is  Not Prime number"<<endl;
+            
+        }
+        return 0;
+ }
