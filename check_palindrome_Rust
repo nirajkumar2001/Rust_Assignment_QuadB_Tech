@@ -1,3 +1,6 @@
+
+//Implement a function that checks whether a given string is a palindrome or not.//
+
 use std::io;
 
 fn check_palindrome(s: &str) -> bool {
