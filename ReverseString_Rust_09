@@ -1,0 +1,33 @@
+use std::io::{self, BufRead};
+
+fn reverse_string(s: &str) -> String {
+  // this is inbuild library available in it
+    s.chars().rev().collect::<String>()
+}
+//second method
+fn reverse_string_manual(s: &str) -> String {
+    let mut result = String::new();
+    for ch in s.chars().rev() {
+        result.push(ch);
+    }
+    result
+}
+// we can also solve it via different method like recursion, stack , and swap method etc
+
+fn main() {
+    // Read input from stdin
+    let stdin = io::stdin();
+    let mut input = String::new();
+
+    println!("Enter a string:");
+    stdin.read_line(&mut input).expect("Failed to read line");
+
+    // Trim whitespace and newlines from the input
+    let input = input.trim();
+
+    // Reverse the input string
+    let reversed = reverse_string(input);
+    
+    println!("Original: {}", input);
+    println!("Reversed: {}", reversed);
+}
