@@ -1,0 +1,31 @@
+use std::io;
+
+fn check_prime_number(number: u32) -> bool {
+    if number <= 1 {
+        return false;
+    }
+    let ans = (number as f64).sqrt() as u32;// use sqrt function to traverse less 
+    for i in 2..=ans {// start from 2 to  ans to check only for that  number
+        if number % i == 0 {// it it divide return false else return true;
+            return false;
+        }
+    }
+    true
+}
+
+fn main() {
+    println!("Enter a number:");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+    let number: u32 = input.trim().parse().expect("Invalid input. Please enter a number.");
+
+    let is_prime = check_prime_number(number);
+
+    if is_prime {
+    //check bool if it is true return the number is prime
+        println!("{}: The given number is a Prime number", number);
+    } else {
+    // else return not a prime number
+        println!("{}: The given number is Not a Prime number", number);
+    }
+}
