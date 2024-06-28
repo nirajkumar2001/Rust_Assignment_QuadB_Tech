@@ -1,0 +1,47 @@
+
+//Given a string of words, implement a function that returns the shortest word in the string
+use std::io;
+
+fn FindShortestWord(nums: &str) -> String {
+    let mut result = String::new();
+    let mut min_length = usize::MAX;
+
+    let mut curr_word = String::new();
+    for c in nums.chars() {
+        if c.is_alphanumeric() { 
+// if there is no space the push the char in curr_word
+            curr_word.push(c);
+        } else {
+            if !curr_word.is_empty() {
+ // curr_word if find emplty then check for length and store it into the result
+                if curr_word.len() < min_length {
+                    min_length = curr_word.len();
+                    result = curr_word.clone();
+                }
+                curr_word.clear();
+            }
+        }
+    }
+
+    // Check the last word in case the string does not end with a space 
+    if !curr_word.is_empty() && curr_word.len() < min_length {
+        result = curr_word;
+    }
+
+    result
+}
+
+fn main() {
+    println!("Enter a string of words:");
+    let mut nums = String::new();
+    io::stdin().read_line(&mut nums).expect("Failed to read input");
+
+    let ans = FindShortestWord(nums.trim());
+
+    if !ans.is_empty() {
+// if ans is not empty then return the string else return no string present
+        println!("The shortest word is: {}", ans);
+    } else {
+        println!("No words found in the input string.");
+    }
+}
