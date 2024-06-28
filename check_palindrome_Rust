@@ -1,0 +1,39 @@
+use std::io;
+
+fn check_palindrome(s: &str) -> bool {
+    let s = s.trim(); // remove the space and unwanted symbol and then check
+    let chars: Vec<char> = s.chars().collect(); // convering string into vector of char type
+    let end = chars.len()-1;
+    let start=0;
+  /// Two pointer  approach
+  let  mut end = chars.len()-1;// here we write mut because we are changing it 
+    let  mut start=0;
+    while start <= end {
+        if s[start..=start] != s[end..=end] {
+            return false;
+        }
+        start += 1;
+        end -= 1;
+}
+// iterative appraoch
+    // for i in 0..end / 2 {
+    //     if chars[i] != chars[end - 1 - i] {
+    //         return false;
+    //     }
+    // }
+    true
+}
+
+fn main() {
+    println!("Enter a string:");
+    // Read  inupt via command line
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read input");
+
+    //  call the function to check the given string is palindrome or not
+    if cehck_palindrome(&input) {
+        println!("'{}' is a palindrome", input.trim());
+    } else {
+        println!("'{}' is not a palindrome", input.trim());
+    }
+}
