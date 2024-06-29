@@ -1,6 +1,7 @@
 Given a binary tree, implement a function that returns the maximum depth of the tree.
 I can sove it very easily by recursion in which we call function root->left, root->right then whenever we maxdepth return after adding 1
-
+ in this  i am writing the code from the scratch write the function to build and bst and then another functioin to print the inoder traversal of the  bst 
+and the the final functio which  i have to solved maxdepth the binary tree  i have solved it  in c++;
 #include <iostream>
 #include <vector>
 #include <queue>
