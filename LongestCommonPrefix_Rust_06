@@ -1,0 +1,46 @@
+use std::io;
+use std::cmp;
+
+fn LongestCommonPrefix(strs: &mut Vec<String>) -> String {
+    strs.sort(); // Sort the  strings
+
+    let mut ans = String::new();
+    if strs.is_empty() {
+ // if a vector of string is empty then return the empty ans
+        return ans; 
+    }
+  // initialize with first  and after sorted them 
+    let first = &strs[0]; 
+    let last = &strs[strs.len() - 1];
+
+    //  we have to check only first and last character beacause we have sorted this so which element is common is in first last is the answer
+    for (c1, c2) in first.chars().zip(last.chars()) {
+        if c1 != c2 {
+            break; // Break loop when characters does not match
+        }
+        ans.push(c1); //   if character  matches then push the char in the ans;
+    }
+
+    ans
+}
+
+fn main() {
+    let mut input = String::new();
+    io::stdin().read_line(&mut input)
+        .expect("Failed to read line");
+// take the input size of the string
+    let n: usize = input.trim().parse()
+        .expect("Please enter a valid number");
+
+    let mut arr = Vec::new();
+// for n size take input as string
+    for _ in 0..n {
+        let mut word = String::new();
+        io::stdin().read_line(&mut word)
+            .expect("Failed to read line");
+        arr.push(word.trim().to_string());
+    }
+ // store the ans in result variable
+    let result = LongestCommonPrefix(&mut arr);
+    println!("Longest common prefix: {}", result);
+}
