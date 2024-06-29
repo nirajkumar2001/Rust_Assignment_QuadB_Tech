@@ -1,0 +1,35 @@
+Find the maximum subarray sum in Rust
+
+
+
+use std::io;
+// we are solve it via Kadane ALogirthms
+fn MaxSubArraySum(arr: &mut Vec<i32>) -> i32 {
+    let mut MaxSum = arr[0];
+    let mut MaxSubArrSum = arr[0];
+
+    for i in 1..arr.len() {
+        MaxSum = std::cmp::max(arr[i], MaxSum + arr[i]);
+        MaxSubArrSum = std::cmp::max(MaxSubArrSum, MaxSum);
+    }
+
+    MaxSubArrSum
+}
+
+fn main() {
+    println!("Enter the elements of the array separated by spaces:");
+
+    // Taking input from the user
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    
+    // taking  input into integers int0 vectors
+    let arr: Vec<i32> = input
+        .trim()
+        .split_whitespace()
+        .map(|x| x.parse().expect("Invalid input"))
+        .collect();
+
+    let max_sum = MaxSubArraySum(&mut arr.clone()); 
+    println!("Maximum subarray sum: {}", max_sum);
+}
