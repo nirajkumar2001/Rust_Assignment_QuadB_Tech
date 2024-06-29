@@ -1,3 +1,6 @@
+Reverse a string in Rust
+//* int this we can solve it via different method first one is inbuild library and the seocond one by iteratiom from reverse and the push in to another vector and the return the result
+and third one we solve it via recursion which i solve in c++ language,and the last one is via the swap method;
 use std::io::{self, BufRead};
 
 fn reverse_string(s: &str) -> String {
