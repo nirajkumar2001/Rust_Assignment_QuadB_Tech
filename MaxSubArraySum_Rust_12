@@ -1,9 +1,9 @@
 Find the maximum subarray sum in Rust
 
-
+// we are solve it via Kadane ALogirthms in which we get o(n) time complexity but if we solve it via brute force approach where we get o(n^2)
 
 use std::io;
-// we are solve it via Kadane ALogirthms
+
 fn MaxSubArraySum(arr: &mut Vec<i32>) -> i32 {
     let mut MaxSum = arr[0];
     let mut MaxSubArrSum = arr[0];
