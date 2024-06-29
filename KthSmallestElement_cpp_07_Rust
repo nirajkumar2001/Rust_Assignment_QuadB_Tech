@@ -1,4 +1,9 @@
 Implement a function that returns the kth smallest element in a given array.
+//* in this we can solve it via direct afted  sorting the elements and the return  arr[k+1] which is kth smallest element 
+but  i solve this via minheap which we have less time complexity realted to  sorted the element and findind the answer int this we store only  first k elements 
+return the  root of the minheap is the kth smallest element *//
+
+
 #include <iostream>
 #include <vector>
 #include<bits/stdc++.h>
