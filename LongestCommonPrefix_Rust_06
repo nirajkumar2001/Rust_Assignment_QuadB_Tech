@@ -1,3 +1,5 @@
+Implement a function that finds the longest common prefix of a given set of strings.
+ // in this question we first sort the element and compare fist with last element whatever is common that is the our longest common prefix
 use std::io;
 use std::cmp;
 
