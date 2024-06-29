@@ -1,3 +1,6 @@
+Implement a function that checks whether a given number is prime or not.
+// in this same as the  which logic was  i used in c++ and divide by every i which start from 2 and goes till sqrt ( number)
+
 use std::io;
 
 fn check_prime_number(number: u32) -> bool {
