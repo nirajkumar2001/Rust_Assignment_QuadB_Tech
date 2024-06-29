@@ -1,3 +1,8 @@
+Merge two sorted arrays in Rust
+ // first we going to make a vector of size ( m+n) and the   compare via the  element in num1 and nums2 whichover is small we insert it in newly created array then
+check the if one array end the second  rah jata hai the push the nums2 and vice verse and then copy the date of nums to nums1;
+
+
 use std::io;
 use std::io::BufRead;
 
