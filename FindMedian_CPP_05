@@ -17,7 +17,18 @@ double findMedian(std::vector<int>& arr) {
         return static_cast<double>(arr[n / 2 - 1] + arr[n / 2]) / 2.0;
     }
 }
-
+// we are solve it via the rust approach
+  let n = arr.len();
+      if n == 0 {
+          panic!("Array must not be empty");
+      }
+   if n % 2 == 1 {
+           arr[n / 2] as f64
+       } else {
+           let mid = n / 2;
+           (arr[mid - 1] as f64 + arr[mid] as f64) / 2.0
+       }
+   }
 int main() {
     int n;
     cout << "Enter number of elements: ";
